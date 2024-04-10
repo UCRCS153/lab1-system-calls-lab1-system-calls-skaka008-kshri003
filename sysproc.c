@@ -89,3 +89,9 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int getsiblings(void) 
+{
+  getsiblings();
+  return 0;
+}

@@ -1,7 +1,7 @@
 #include "types.h"
 #include "user.h"
 
-void getSibling(void){
+void getsiblings(void){
     int pid1, pid2;
     pid1 = fork();
     if (pid1 == 0) {
@@ -27,8 +27,8 @@ void getSibling(void){
 
 int main(int argc, char *argv[])
 {
-    // printf(1, "\nlab1 part1: test getsiblings\n");
+    printf(1, "\nlab1 part1: test getsiblings\n");
     getSibling();
     exit();
-    // return 0;
+    return 0;
 }     
