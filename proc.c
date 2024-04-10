@@ -539,18 +539,18 @@ getsiblings(void)
     int pid1, pid2;
     pid1 = fork();
     if (pid1 == 0) {
-        sleep(10);
+        // sleep(10);
     } else {
-        cprintf(1, "sibling 1 pid: %d\n", pid1);
+        cprintf("sibling 1 pid: %d\n", pid1);
         pid2 = fork();
         if (pid2 == 0) {
             // check if the sibling is pid1
-            cprintf(1, "getsiblings pid %d\n", getsiblings());
-            if (pid1 == getsiblings()) {
-                cprintf(1, "sibling pid matches with sibling1\n");
-            } else {
-                cprintf(1, "sibling pid DOES NOT matches with sibling1\n");
-            }
+            // cprintf("getsiblings pid %d\n", getsiblings());
+            // if (pid1 == getsiblings()) {
+            //     cprintf("sibling pid matches with sibling1\n");
+            // } else {
+            //     cprintf("sibling pid DOES NOT matches with sibling1\n");
+            // }
         }
     }
     wait();

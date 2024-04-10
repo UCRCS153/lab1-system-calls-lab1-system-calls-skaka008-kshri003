@@ -90,7 +90,8 @@ sys_uptime(void)
   return xticks;
 }
 
-int getsiblings(void) 
+int
+getsiblings(void) 
 {
   getsiblings();
   return 0;
