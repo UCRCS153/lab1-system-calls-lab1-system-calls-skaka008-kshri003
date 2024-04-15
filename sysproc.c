@@ -91,8 +91,7 @@ sys_uptime(void)
 }
 
 int
-getsiblings(void) 
+sys_getsiblings(void) 
 {
-  getsiblings();
-  return 0;
+  return getsiblings();
 }

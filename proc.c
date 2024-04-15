@@ -533,27 +533,25 @@ procdump(void)
   }
 }
 
-void 
-getsiblings(void)
-{
-    int pid1, pid2;
-    pid1 = fork();
-    if (pid1 == 0) {
-        // sleep(10);
-    } else {
-        cprintf("sibling 1 pid: %d\n", pid1);
-        pid2 = fork();
-        if (pid2 == 0) {
-            // check if the sibling is pid1
-            // cprintf("getsiblings pid %d\n", getsiblings());
-            // if (pid1 == getsiblings()) {
-            //     cprintf("sibling pid matches with sibling1\n");
-            // } else {
-            //     cprintf("sibling pid DOES NOT matches with sibling1\n");
-            // }
-        }
+int getsiblings(void){
+    
+    struct proc* curproc = myproc() ;
+    struct proc *p;
+    cprintf("%d %s\n", curproc->pid, curproc->name);
+
+    // Loop over process table looking for process to run.
+    acquire(&ptable.lock);
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+        cprintf("%d %d\n", curproc->parent->pid, p->parent->pid);
+        if(curproc->parent->pid != p->parent->pid)
+            continue;
+        release(&ptable.lock);
+        return p->pid;
+
+      
     }
-    wait();
-    wait();
-    return;
+    release(&ptable.lock);
+    
+    return 0;
 }
+
