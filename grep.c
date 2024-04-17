@@ -49,7 +49,7 @@ main(int argc, char *argv[])
 
   if(argc <= 2){
     grep(pattern, 0);
-    exit(pattern);
+    exit(0);
   }
 
   for(i = 2; i < argc; i++){
