@@ -21,9 +21,14 @@ sys_exit(int status)
 }
 
 int
-sys_wait(void)
+sys_wait(int* status)
 {
-  return wait(0);
+  return wait(status);
+}
+
+int sys_waitpid(int pid, int* status, int options) 
+{
+  return waitpid(pid, status, options);
 }
 
 int
