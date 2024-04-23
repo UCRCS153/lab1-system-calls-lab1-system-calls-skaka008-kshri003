@@ -539,18 +539,16 @@ int getsiblings(void){
     
     struct proc* curproc = myproc() ;
     struct proc *p;
-    cprintf("%d %s\n", curproc->pid, curproc->name);
+    // cprintf("%d %s\n", curproc->pid, curproc->name);
 
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-        cprintf("%d %d\n", curproc->parent->pid, p->parent->pid);
+        // cprintf("%d %d\n", curproc->parent->pid, p->parent->pid);
         if(curproc->parent->pid != p->parent->pid)
             continue;
         release(&ptable.lock);
         return p->pid;
-
-      
     }
     release(&ptable.lock);
     
