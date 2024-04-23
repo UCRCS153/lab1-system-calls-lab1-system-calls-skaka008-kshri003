@@ -53,7 +53,7 @@ sys_waitpid(void)
     return -1;
   }
 
-  return waitpid(pid,status,options);
+  return waitpid(pid, status, options);
 }
 
 int
